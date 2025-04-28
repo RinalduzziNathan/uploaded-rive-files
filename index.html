@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rive Files</title>
+  <script>
+    // Si l'URL n'a pas déjà de paramètre 't', on recharge avec ?t=timestamp
+    if (!location.search.includes('t=')) {
+      window.location.href = location.pathname + '?t=' + Date.now();
+    }
+  </script>
   <style>
     body {
       margin: 0;
@@ -78,8 +84,6 @@
 
   <!-- Script principal qui utilise riveFiles -->
   <script>
-    window.location.href = window.location.pathname + '?t=' + Date.now();
-
     const script = document.createElement('script');
     script.src = `files.js?v=${new Date().getTime()}`;
     document.head.appendChild(script);
