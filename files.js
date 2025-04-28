@@ -8,6 +8,6 @@ const riveFiles = [
   "retouches.psd",
   "test2318.riv",
   "vid.mp4",
-  "volcan.riv",
-  "volcano.riv"
+  "vo.riv",
+  "volcan.riv"
 ];
