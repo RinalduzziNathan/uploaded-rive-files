@@ -3,7 +3,7 @@ const riveFiles = [
   "anshin.cpp",
   "bateau.riv",
   "dahl.riv",
-  "image.png",
+  "maliwan.png",
   "pangee.riv",
   "placeboheader.h",
   "retouches.psd",
