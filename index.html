@@ -1,85 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rive Files</title>
-    <style>
-        body {
-            margin: 0;
-            background-image: linear-gradient(#e0e0e0 1px, transparent 1px), linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
-            background-size: 10px 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
-        .file-list {
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-        .file-item {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 150px;
-            height: 50px;
-            background-color: black;
-            color: white;
-            font-size: 14px;
-            text-align: center;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .center-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 200px;
-            height: 200px;
-            background-color: black;
-            color: white;
-            font-size: 20px;
-            text-align: center;
-            border-radius: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rive Files</title>
+  <style>
+    body {
+      margin: 0;
+      background-image: linear-gradient(#e0e0e0 1px, transparent 1px), linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
+      background-size: 10px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    .file-list {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .file-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 50px;
+      background-color: black;
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+
+      /* Départ invisible et décalé */
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .file-item.show {
+      /* Devient visible */
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .center-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 200px;
+      background-color: black;
+      color: white;
+      font-size: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="center-box">Rive Files</div>
+  <div class="center-box">Rive Files</div>
 
-    <!-- Charger files.js en premier -->
-    <script src="files.js"></script>
+  <!-- Charger files.js en premier -->
+  <script src="files.js"></script>
 
-    <!-- Section pour afficher la liste des fichiers -->
-    <div class="file-list" id="file-list">
-        <!-- Les fichiers .riv seront ajoutés ici dynamiquement -->
-    </div>
+  <!-- Section pour afficher la liste des fichiers -->
+  <div class="file-list" id="file-list">
+    <!-- Les fichiers .riv seront ajoutés ici dynamiquement -->
+  </div>
 
-    <!-- Script principal qui utilise riveFiles -->
-    <script>
-        // Sélectionner la div où afficher les fichiers
-        const fileListDiv = document.getElementById('file-list');
+  <!-- Script principal qui utilise riveFiles -->
+  <script>
+    const fileListDiv = document.getElementById('file-list');
 
-        // Ajouter chaque fichier .riv à la page
-        riveFiles.forEach(file => {
-            const fileItem = document.createElement('div');
-            fileItem.classList.add('file-item');
-            fileItem.textContent = file;
+    riveFiles.forEach((file, index) => {
+      const fileItem = document.createElement('div');
+      fileItem.classList.add('file-item');
+      fileItem.textContent = file;
 
-            // Ajouter un gestionnaire de clic pour chaque fichier
-            fileItem.addEventListener('click', () => {
-                alert(`Tu as cliqué sur le fichier : ${file}`);
-            });
+      fileItem.addEventListener('click', () => {
+        alert(`Tu as cliqué sur le fichier : ${file}`);
+      });
 
-            fileListDiv.appendChild(fileItem);
-        });
-    </script>
+      fileListDiv.appendChild(fileItem);
+
+      // Petit délai progressif pour chaque fichier
+      setTimeout(() => {
+        fileItem.classList.add('show');
+      }, 100 * index); // 100ms de délai entre chaque apparition
+    });
+  </script>
 </body>
 </html>
