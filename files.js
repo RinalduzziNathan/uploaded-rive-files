@@ -3,6 +3,6 @@ const riveFiles = [
   "bateau.riv",
   "image.png",
   "pangee.riv",
-  "test_.riv",
+  "test2318.riv",
   "volcan.riv"
 ];
