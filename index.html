@@ -78,6 +78,8 @@
 
   <!-- Script principal qui utilise riveFiles -->
   <script>
+    window.location.href = window.location.pathname + '?t=' + Date.now();
+
     const script = document.createElement('script');
     script.src = `files.js?v=${new Date().getTime()}`;
     document.head.appendChild(script);
