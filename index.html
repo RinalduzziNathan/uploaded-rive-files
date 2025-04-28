@@ -10,11 +10,32 @@
             background-image: linear-gradient(#e0e0e0 1px, transparent 1px), linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
             background-size: 10px 10px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
+        }
+        .file-list {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .file-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 50px;
+            background-color: black;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
         }
         .center-box {
             display: flex;
@@ -32,5 +53,40 @@
 </head>
 <body>
     <div class="center-box">Rive Files</div>
+
+    <!-- Section pour afficher la liste des fichiers -->
+    <div class="file-list" id="file-list">
+        <!-- Les fichiers .riv seront ajoutés ici dynamiquement -->
+    </div>
+
+    <script>
+        // Vérifier que le fichier files.js est bien chargé
+        fetch('files.js')
+            .then(response => response.text())
+            .then(data => {
+                // Charger la liste des fichiers .riv depuis files.js
+                eval(data);  // Exécute le contenu de files.js pour définir la variable riveFiles
+
+                // Sélectionner la div où afficher les fichiers
+                const fileListDiv = document.getElementById('file-list');
+
+                // Ajouter chaque fichier .riv à la page
+                riveFiles.forEach(file => {
+                    const fileItem = document.createElement('div');
+                    fileItem.classList.add('file-item');
+                    fileItem.textContent = file;
+                    
+                    // Ajouter un gestionnaire de clic pour chaque fichier
+                    fileItem.addEventListener('click', () => {
+                        alert(`Tu as cliqué sur le fichier : ${file}`);
+                    });
+
+                    fileListDiv.appendChild(fileItem);
+                });
+            })
+            .catch(error => {
+                console.error('Erreur lors du chargement de files.js:', error);
+            });
+    </script>
 </body>
 </html>

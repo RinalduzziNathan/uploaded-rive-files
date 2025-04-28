@@ -1,0 +1,12 @@
+{
+    "name": "rive-files-generator",
+    "version": "1.0.0",
+    "description": "generate Rive files from JSON data",
+    "main": "generate-files.js",
+    "scripts": {
+      "generate": "node generate-files.js"
+    },
+    "author": "",
+    "license": "MIT"
+  }
+  
