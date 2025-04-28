@@ -69,9 +69,11 @@
 
                 // Sélectionner la div où afficher les fichiers
                 const fileListDiv = document.getElementById('file-list');
+                console.log(fileListDiv);
 
                 // Ajouter chaque fichier .riv à la page
                 riveFiles.forEach(file => {
+                    console.log(file);
                     const fileItem = document.createElement('div');
                     fileItem.classList.add('file-item');
                     fileItem.textContent = file;
