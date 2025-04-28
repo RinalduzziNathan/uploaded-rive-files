@@ -1,10 +1,13 @@
 name: Génération automatique du fichier files.js
 
+permissions:
+  contents: write
+
 on:
   push:
     paths:
-      - 'rive/**'   
-  workflow_dispatch: 
+      - 'rive/**'   # Déclenche seulement si quelque chose change dans /rive
+  workflow_dispatch: # Permet de lancer manuellement aussi si besoin
 
 jobs:
   generate-files:
@@ -17,7 +20,7 @@ jobs:
     - name: Installer Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 20  
+        node-version: 20  # ou une autre version stable
 
     - name: Installer les dépendances
       run: npm install
