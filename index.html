@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-  <meta charset="UTF-8">
-  <script>
-    const cb = Date.now();
-    const script = document.createElement('script');
-    script.src = `files.js?t=${cb}`;
-    document.head.appendChild(script);
-  </script>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rive Files</title>
   <style>
     body {
       margin: 0;
-      background-image: linear-gradient(#e0e0e0 1px, transparent 1px), linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
+      background-image:
+        linear-gradient(#e0e0e0 1px, transparent 1px),
+        linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
       background-size: 10px 10px;
       display: flex;
       flex-direction: column;
@@ -24,6 +18,18 @@
       height: 100vh;
       background-color: #f0f0f0;
       font-family: Arial, sans-serif;
+    }
+    .center-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 200px;
+      background-color: black;
+      color: white;
+      font-size: 20px;
+      text-align: center;
+      border-radius: 10px;
     }
     .file-list {
       margin-top: 20px;
@@ -44,66 +50,51 @@
       text-align: center;
       border-radius: 5px;
       cursor: pointer;
-
-      /* Départ invisible et décalé */
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
     .file-item.show {
-      /* Devient visible */
       opacity: 1;
       transform: translateY(0);
     }
-    .center-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 200px;
-      height: 200px;
-      background-color: black;
-      color: white;
-      font-size: 20px;
-      text-align: center;
-      border-radius: 10px;
-    }
   </style>
+
+  <script>
+    // Création dynamique de la balise <script> avec cache-buster
+    const cacheBuster = Date.now();
+    const riveScript = document.createElement('script');
+    riveScript.src = `files.js?t=${cacheBuster}`;
+    document.head.appendChild(riveScript);
+
+    // Quand files.js est chargé, on appelle initFileList()
+    riveScript.onload = initFileList;
+
+    // Fonction d'initialisation de l'affichage
+    function initFileList() {
+      const fileListDiv = document.createElement('div');
+      fileListDiv.className = 'file-list';
+      document.body.appendChild(fileListDiv);
+
+      riveFiles.forEach((file, index) => {
+        const item = document.createElement('div');
+        item.className = 'file-item';
+        item.textContent = file;
+        item.addEventListener('click', () => {
+          alert(`Tu as cliqué sur le fichier : ${file}`);
+        });
+        fileListDiv.appendChild(item);
+
+        // Animation en cascade
+        setTimeout(() => {
+          item.classList.add('show');
+        }, index * 100);
+      });
+    }
+  </script>
 </head>
 <body>
   <div class="center-box">Rive Files</div>
-
-  <!-- Charger files.js en premier -->
-  <script src="files.js"></script>
-
-  <!-- Section pour afficher la liste des fichiers -->
-  <div class="file-list" id="file-list">
-    <!-- Les fichiers .riv seront ajoutés ici dynamiquement -->
-  </div>
-
-
-  <!-- Script principal qui utilise riveFiles -->
-  <script>
-
-    
-    const fileListDiv = document.getElementById('file-list');
-
-    riveFiles.forEach((file, index) => {
-      const fileItem = document.createElement('div');
-      fileItem.classList.add('file-item');
-      fileItem.textContent = file;
-      document.getElementById('file-list').appendChild(fileItem);
-
-      fileItem.addEventListener('click', () => {
-        alert(`Tu as cliqué sur le fichier : ${file}`);
-      });
-
-      fileListDiv.appendChild(fileItem);
-
-      // Petit délai progressif pour chaque fichier
-      setTimeout(() => {
-        fileItem.classList.add('show');
-      }, 100 * index); // 100ms de délai entre chaque apparition
-    });
-  </script>
+  <!-- La liste sera injectée automatiquement par initFileList() -->
 </body>
 </html>
