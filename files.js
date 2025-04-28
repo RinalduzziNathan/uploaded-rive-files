@@ -3,6 +3,11 @@ const riveFiles = [
   "bateau.riv",
   "image.png",
   "pangee.riv",
+  "placebo.cpp",
+  "placeboheader.h",
+  "retouches.psd",
   "test2318.riv",
-  "volcan.riv"
+  "vid.mp4",
+  "volcan.riv",
+  "volcano.riv"
 ];
