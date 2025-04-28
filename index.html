@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
   <meta charset="UTF-8">
+  <script>
+    const cb = Date.now();
+    const script = document.createElement('script');
+    script.src = `files.js?t=${cb}`;
+    document.head.appendChild(script);
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rive Files</title>
   <style>
@@ -71,22 +79,19 @@
   <div class="file-list" id="file-list">
     <!-- Les fichiers .riv seront ajoutés ici dynamiquement -->
   </div>
-  <script src="files.js?v=20250428"></script>
-  <script src="app.js?ts=202304011200"></script> 
-
 
 
   <!-- Script principal qui utilise riveFiles -->
   <script>
-    const script = document.createElement('script');
-    script.src = `files.js?v=${new Date().getTime()}`;
-    document.head.appendChild(script);
+
+    
     const fileListDiv = document.getElementById('file-list');
 
     riveFiles.forEach((file, index) => {
       const fileItem = document.createElement('div');
       fileItem.classList.add('file-item');
       fileItem.textContent = file;
+      document.getElementById('file-list').appendChild(fileItem);
 
       fileItem.addEventListener('click', () => {
         alert(`Tu as cliqué sur le fichier : ${file}`);
