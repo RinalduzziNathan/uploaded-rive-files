@@ -9,5 +9,5 @@ const riveFiles = [
   "test2318.riv",
   "vid.mp4",
   "volcan.riv",
-  "volcano.riv"
+  "voljin.riv"
 ];
