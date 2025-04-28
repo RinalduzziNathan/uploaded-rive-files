@@ -15,10 +15,10 @@ fs.readdir(riveDir, (err, files) => {
     }
 
     // Filtrer uniquement les fichiers .riv si tu veux
-    const riveFiles = files.filter(file => file.endsWith('.riv'));
+   // const riveFiles = files.filter(file => file.endsWith('.riv'));
 
     // Génération du contenu du fichier JS
-    const content = `const riveFiles = ${JSON.stringify(riveFiles, null, 2)};`;
+    const content = `const riveFiles = ${JSON.stringify(files, null, 2)};`;
 
     // Écriture du fichier
     fs.writeFile(outputFile, content, (err) => {
