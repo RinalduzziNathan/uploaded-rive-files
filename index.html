@@ -75,7 +75,9 @@
 
   <!-- Script principal qui utilise riveFiles -->
   <script>
-    
+    const script = document.createElement('script');
+    script.src = `files.js?v=${new Date().getTime()}`;
+    document.head.appendChild(script);
     const fileListDiv = document.getElementById('file-list');
 
     riveFiles.forEach((file, index) => {
