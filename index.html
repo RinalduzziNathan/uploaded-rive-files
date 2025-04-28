@@ -53,6 +53,8 @@
 </head>
 <body>
     <div class="center-box">Rive Files</div>
+
+    <!-- Charger files.js en premier -->
     <script src="files.js"></script>
 
     <!-- Section pour afficher la liste des fichiers -->
@@ -60,36 +62,24 @@
         <!-- Les fichiers .riv seront ajoutés ici dynamiquement -->
     </div>
 
+    <!-- Script principal qui utilise riveFiles -->
     <script>
-        // Vérifier que le fichier files.js est bien chargé
-        fetch('files.js')
-            .then(response => response.text())
-            .then(data => {
-                // Charger la liste des fichiers .riv depuis files.js
-                eval(data);  // Exécute le contenu de files.js pour définir la variable riveFiles
+        // Sélectionner la div où afficher les fichiers
+        const fileListDiv = document.getElementById('file-list');
 
-                // Sélectionner la div où afficher les fichiers
-                const fileListDiv = document.getElementById('file-list');
-                console.log(fileListDiv);
+        // Ajouter chaque fichier .riv à la page
+        riveFiles.forEach(file => {
+            const fileItem = document.createElement('div');
+            fileItem.classList.add('file-item');
+            fileItem.textContent = file;
 
-                // Ajouter chaque fichier .riv à la page
-                riveFiles.forEach(file => {
-                    console.log(file);
-                    const fileItem = document.createElement('div');
-                    fileItem.classList.add('file-item');
-                    fileItem.textContent = file;
-                    
-                    // Ajouter un gestionnaire de clic pour chaque fichier
-                    fileItem.addEventListener('click', () => {
-                        alert(`Tu as cliqué sur le fichier : ${file}`);
-                    });
-
-                    fileListDiv.appendChild(fileItem);
-                });
-            })
-            .catch(error => {
-                console.error('Erreur lors du chargement de files.js:', error);
+            // Ajouter un gestionnaire de clic pour chaque fichier
+            fileItem.addEventListener('click', () => {
+                alert(`Tu as cliqué sur le fichier : ${file}`);
             });
+
+            fileListDiv.appendChild(fileItem);
+        });
     </script>
 </body>
 </html>
