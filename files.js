@@ -1,3 +1,4 @@
 const riveFiles = [
-  "volcan.riv"
+  "volcan.riv",
+  "volcanold.riv"
 ];
