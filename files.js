@@ -1,7 +1,8 @@
 const riveFiles = [
-  "big video.mp4",
-  "boat.png",
-  "volcan.riv",
-  "volcan_final_explosif.riv",
-  "volcanold.riv"
+
+  "fluideVisueuse.riv",
+  "seisme.riv",
+  "tectonique_convergence.riv",
+  "tectonique_divergence.riv",
+  "volcan_final.riv",
 ];
