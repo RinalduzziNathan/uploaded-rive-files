@@ -7,6 +7,7 @@ const riveFiles = [
   "seisme2.riv",
   "seisme3",
   "seisme3.riv",
+  "seisme4.riv",
   "tectonique_convergence.riv",
   "tectonique_divergence.riv",
   "volcan_final",
