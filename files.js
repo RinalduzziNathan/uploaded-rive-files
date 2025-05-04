@@ -1,6 +1,5 @@
 const riveFiles = [
   ".DS_Store",
-  "fluideVisueuse",
   "fluideVisueuse.riv",
   "seisme.riv",
   "seisme2",
