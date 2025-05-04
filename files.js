@@ -1,7 +1,5 @@
 const riveFiles = [
   ".DS_Store",
-  "fluide:visqueuse.riv",
-  "fluideVisueuse.riv",
   "seisme.riv",
   "seisme2",
   "seisme2.riv",
@@ -10,6 +8,7 @@ const riveFiles = [
   "seisme4.riv",
   "tectonique_convergence.riv",
   "tectonique_divergence.riv",
+  "visqueuse.riv",
   "volcan_final",
   "volcan_final.riv"
 ];
