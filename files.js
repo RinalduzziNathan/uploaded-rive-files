@@ -9,6 +9,7 @@ const riveFiles = [
   "tectonique_convergence.riv",
   "tectonique_divergence.riv",
   "visqueuse.riv",
+  "visqueuse2.riv",
   "volcan_final",
   "volcan_final.riv"
 ];
