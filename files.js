@@ -1,5 +1,6 @@
 const riveFiles = [
   ".DS_Store",
+  "pangeeyeux.riv",
   "seisme4.riv",
   "seismeMains.riv",
   "seismeMains2.riv",
