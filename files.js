@@ -8,5 +8,6 @@ const riveFiles = [
   "tectonique_divergence.riv",
   "visqueuse.riv",
   "visqueuseFix.riv",
-  "volcan_final.riv"
+  "volcan_final.riv",
+  "yeuxFermes"
 ];
