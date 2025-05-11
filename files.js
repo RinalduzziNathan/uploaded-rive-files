@@ -9,5 +9,5 @@ const riveFiles = [
   "visqueuse.riv",
   "visqueuseFix.riv",
   "volcan_final.riv",
-  "yeuxFermes"
+  "yeuxfermes.riv"
 ];
