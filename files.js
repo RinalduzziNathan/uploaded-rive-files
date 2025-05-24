@@ -10,6 +10,7 @@ const riveFiles = [
   "seismemains3.riv",
   "seismenv.riv",
   "seismeperspective.riv",
+  "seismeperspective2.riv",
   "tectofleches.riv",
   "tectomains.riv",
   "tectonique_convergence.riv",
