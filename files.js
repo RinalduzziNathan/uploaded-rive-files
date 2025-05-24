@@ -8,6 +8,7 @@ const riveFiles = [
   "seismeMains.riv",
   "seismeMains2.riv",
   "seismenv.riv",
+  "seismeperspective.riv",
   "tectofleches.riv",
   "tectomains.riv",
   "tectonique_convergence.riv",
